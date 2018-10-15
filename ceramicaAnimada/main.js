@@ -82,7 +82,7 @@ coords.forEach(e => {
    scene.add(group);
 });
 
-console.log(scene.children[0].children[0]);
+//console.log(scene.children[0].children[0]);
 
 // Animación inicial
 function begin(){
@@ -189,6 +189,9 @@ function end(){
 }
 
 render();
+
+console.log(renderer.getCurrentViewport());
+console.log(renderer.getPixelRatio());
 
 function render(){
    requestAnimationFrame(render);
