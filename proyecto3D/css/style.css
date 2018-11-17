@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+#main{
+  /* max-width: 80%;
+  height: 80% !important; */
+  float: right;
+}
+#leftpanel{
+  float: left;
+}
