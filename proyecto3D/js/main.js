@@ -4,6 +4,20 @@ var near = 1;
 var far = 1000;
 var frustumSize = 1000;
 var cubesIn = false;
+var shperesIn = false;
+var octahedronsIn = false;
+var frameCounter = 0;
+
+var rotate = false;
+var escape = false;
+var move = false;
+var color = false;
+var transparency = false;
+var transLevel = 0;
+var scale = false;
+var factorScale = 0;
+
+var clicked = '';
 
 var mainScene = new THREE.Scene();
 var mainCamera = new THREE.OrthographicCamera(-width, width, height, -height, near, far);
@@ -22,13 +36,66 @@ mainScene.add(mainDirectionalLight);
 drawLines(mainScene);
 
 var animateMain = function () {
+  frameCounter ++;
   requestAnimationFrame(animateMain);
   mainRenderer.render(mainScene, mainCamera);
-  if (cubesIn) {
-    mainScene.children[2].children.forEach(element => {
-      element.rotation.x += 0.01;
-      element.rotation.y += 0.01;
-    });
+  if (rotate){
+    switch (clicked) {
+      case 'cubes':
+        rotateGeometry(mainScene.children.find(elem => {
+          return elem.name == 'cubes'
+        }))
+      break;
+      case 'octahedrons':
+        rotateGeometry(mainScene.children.find(elem => {
+          return elem.name == 'octahedrons'
+        }))
+      break;
+    }
+  }
+  if(move){
+    switch (clicked) {
+      case 'cubes':
+        moveGeometry(mainScene.children.find(elem => {
+          return elem.name == 'cubes'
+        }))
+      break;
+      case 'spheres':
+        moveGeometry(mainScene.children.find(elem => {
+          return elem.name == 'spheres'
+        }))
+      break;
+      case 'octahedrons':
+        moveGeometry(mainScene.children.find(elem => {
+          return elem.name == 'octahedrons'
+        }))
+      break;
+    
+      default:
+        break;
+    }
+  }
+  if(color){
+    switch (clicked) {
+      case 'cubes':
+        changeColor(mainScene.children.find(elem => {
+          return elem.name == 'cubes'
+        }))
+      break;
+      case 'spheres':
+        changeColor(mainScene.children.find(elem => {
+          return elem.name == 'spheres'
+        }))
+      break;
+      case 'octahedrons':
+        changeColor(mainScene.children.find(elem => {
+          return elem.name == 'octahedrons'
+        }))
+      break;
+    
+      default:
+        break;
+    }
   }
 };
 

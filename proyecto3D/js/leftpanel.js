@@ -46,16 +46,48 @@ lpscene.add(directionalLight);
 // Esfera
 var lpDomEvents = new THREEx.DomEvents(lpcamera, lprenderer.domElement);
 lpDomEvents.addEventListener(sphere, 'click', () => {
-  sphere.material.wireframe = !sphere.material.wireframe;
+  if(!shperesIn){
+    drawSpheres(mainScene);
+    clicked = 'shperes'
+  }else {
+    if (clicked == 'shperes') {
+      clicked = ''
+    } else {
+      clicked = 'shperes'
+    }
+  }
 })
+
 // Cube
 lpDomEvents.addEventListener(cube, 'click', () => {
-  drawCubes(mainScene);
-  console.log(mainScene);
+  if (!cubesIn) {
+    drawCubes(mainScene);
+    console.log(mainScene.children)
+    console.log(mainScene.children.find(elem => {
+      return elem.name == 'cubes'
+    }))
+    clicked = 'cubes'
+  } else {
+    if (clicked == 'cubes'){
+      clicked = ''
+    }else{
+      clicked = 'cubes'
+    }
+  }
 })
+
 // Octa
 lpDomEvents.addEventListener(sphere2, 'click', () => {
-  sphere2.material.wireframe = !sphere2.material.wireframe;
+  if (!octahedronsIn) {
+    drawOctahedrons(mainScene);
+    clicked = 'octahedrons'
+  } else {
+    if (clicked == 'octahedrons') {
+      clicked = ''
+    } else {
+      clicked = 'octahedrons'
+    }
+  }
 })
 
 var animateLP = function () {
