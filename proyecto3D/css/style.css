@@ -10,3 +10,18 @@ body {
 #leftpanel{
   float: left;
 }
+
+#controls{
+  float: left;
+  border: 5px solid black;
+  margin-top: 5px;
+  line-height: 150%;
+}
+p{
+  margin: 10px
+}
+
+li {
+    display:inline;
+    margin: 100px ;
+}

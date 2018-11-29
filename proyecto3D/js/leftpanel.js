@@ -37,6 +37,7 @@ var sphere2 = new THREE.Mesh(geometry, material);
 sphere2.position.set(0, -15, -20);
 lpscene.add(sphere2);
 
+
 // LIGHT
 var directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
 directionalLight.position.z = 2;
@@ -48,12 +49,13 @@ var lpDomEvents = new THREEx.DomEvents(lpcamera, lprenderer.domElement);
 lpDomEvents.addEventListener(sphere, 'click', () => {
   if(!shperesIn){
     drawSpheres(mainScene);
-    clicked = 'shperes'
+    clicked = 'spheres';
+    console.log(clicked);
   }else {
-    if (clicked == 'shperes') {
-      clicked = ''
+    if (clicked == 'spheres') {
+      clicked = '';
     } else {
-      clicked = 'shperes'
+      clicked = 'spheres';
     }
   }
 })
@@ -90,6 +92,7 @@ lpDomEvents.addEventListener(sphere2, 'click', () => {
   }
 })
 
+//Animacion lateral
 var animateLP = function () {
   requestAnimationFrame(animateLP);
   lprenderer.render(lpscene, lpcamera);

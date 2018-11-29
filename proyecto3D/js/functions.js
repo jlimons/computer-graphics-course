@@ -170,7 +170,25 @@ function moveGeometry(group){
 var colors = [ 0xf44242, 0xf4a341, 0xf4df41, 0x4cf441, 0x41f4e8, 0x4143f4, 0xd341f4, 0xf44194 ];
 
 function changeColor(group){
-  group.children.forEach((elem, index) => {
-    elem.material.color.setHex(colors[index]);
+    group.children.forEach((elem, index) => {
+      rand=Math.floor(Math.random() * 8);
+      elem.material.color.setHex(colors[rand]);
   })
+}
+
+
+function changeTrans(group){
+  group.children.forEach((element,index)=>{
+    element.material.transparent=true;
+    element.material.opacity= Math.random();
+  });
+}
+
+function scaleGeometry(group){
+  var num = prompt("Escoge un numero real entre 0 y 5")
+  if(num!=null){
+    group.children.forEach((element, index) => {
+      element.scale.set(num,num,num);
+    });
+  }
 }
