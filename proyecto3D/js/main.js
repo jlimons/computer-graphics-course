@@ -70,12 +70,12 @@ var animateMain = function () {
           return elem.name == 'octahedrons'
         }))
       break;
-    
       default:
         break;
     }
   }
   if(color){
+    color=false
     switch (clicked) {
       case 'cubes':
         changeColor(mainScene.children.find(elem => {
@@ -92,7 +92,53 @@ var animateMain = function () {
           return elem.name == 'octahedrons'
         }))
       break;
-    
+
+      default:
+        break;
+    }
+  }
+  if(transparency){
+    transparency=false
+    switch (clicked) {
+      case 'cubes':
+        changeTrans(mainScene.children.find(elem => {
+          return elem.name == 'cubes'
+        }))
+      break;
+      case 'spheres':
+        changeTrans(mainScene.children.find(elem => {
+          return elem.name == 'spheres'
+        }))
+      break;
+      case 'octahedrons':
+        changeTrans(mainScene.children.find(elem => {
+          return elem.name == 'octahedrons'
+        }))
+      break;
+
+      default:
+        break;
+    }
+  }
+  if(scale){
+    scale=false
+    switch (clicked) {
+      case 'cubes':
+        scaleGeometry(mainScene.children.find(elem => {
+          return elem.name == 'cubes'
+        }))
+      break;
+      case 'spheres':
+        scaleGeometry(mainScene.children.find(elem => {
+          return elem.name == 'spheres'
+        }))
+      break;
+      case 'octahedrons':
+        scaleGeometry(mainScene.children.find(elem => {
+          return elem.name == 'octahedrons'
+        }))
+      break;
+
       default:
         break;
     }
