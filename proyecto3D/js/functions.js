@@ -43,7 +43,7 @@ function drawCubes(scene) {
   if (!cubesIn) {
     for (let index = 0; index < 8; index++) {
       var geometry = new THREE.BoxGeometry(4, 4, 4);
-      var material = new THREE.MeshLambertMaterial({
+      var material = new THREE.MeshStandardMaterial({
         color: 0xf49441,
       });
       var XplusOrMinus = Math.random() < 0.5 ? -1 : 1;
@@ -66,7 +66,7 @@ function drawSpheres(scene){
   if(!shperesIn){
     for (let index = 0; index < 8; index++) {
       var geometry = new THREE.SphereGeometry(2.5, 25, 25);
-      var material = new THREE.MeshLambertMaterial({
+      var material = new THREE.MeshStandardMaterial({
         color: 0xf44158,
       });
       var XplusOrMinus = Math.random() < 0.5 ? -1 : 1;
@@ -92,7 +92,7 @@ function drawOctahedrons(scene){
   if(!octahedronsIn){
     for (let index = 0; index < 8; index++) {
       var geometry = new THREE.OctahedronGeometry(3, 0);
-      var material = new THREE.MeshLambertMaterial({
+      var material = new THREE.MeshStandardMaterial({
         color: 0x41f4f1,
       });
       var XplusOrMinus = Math.random() < 0.5 ? -1 : 1;
@@ -178,14 +178,15 @@ function changeColor(group){
 
 
 function changeTrans(group){
+  var num = prompt("Escoge un numero entre 0 y 1")
   group.children.forEach((element,index)=>{
-    element.material.transparent=true;
-    element.material.opacity= Math.random();
+    element.material.transparent = true;
+    element.material.opacity= num;
   });
 }
 
 function scaleGeometry(group){
-  var num = prompt("Escoge un numero real entre 0 y 5")
+  var num = prompt("Escoge un numero entre 0 y 5")
   if(num!=null){
     group.children.forEach((element, index) => {
       element.scale.set(num,num,num);

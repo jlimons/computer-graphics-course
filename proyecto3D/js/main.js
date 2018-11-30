@@ -15,7 +15,6 @@ var color = false;
 var transparency = false;
 var transLevel = 0;
 var scale = false;
-var factorScale = 0;
 
 var clicked = '';
 
@@ -29,8 +28,8 @@ mainRenderer.setClearColor(0xffffff);
 document.getElementById('main').appendChild(mainRenderer.domElement);
 
 // LIGHT
-var mainDirectionalLight = new THREE.DirectionalLight(0xffffff, 1);
-mainDirectionalLight.position.z = 5;
+var mainDirectionalLight = new THREE.SpotLight(0xffffff, 1);
+mainDirectionalLight.position.z = 10;
 mainScene.add(mainDirectionalLight);
 
 drawLines(mainScene);
