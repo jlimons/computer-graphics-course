@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "ceramicaAnimada",
+    "public": "proyecto3D",
     "ignore": [
       "firebase.json",
       "**/.*",
