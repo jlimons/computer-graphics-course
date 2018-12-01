@@ -50,7 +50,6 @@ lpDomEvents.addEventListener(sphere, 'click', () => {
   if(!shperesIn){
     drawSpheres(mainScene);
     clicked = 'spheres';
-    console.log(clicked);
   }else {
     if (clicked == 'spheres') {
       clicked = '';
@@ -64,10 +63,6 @@ lpDomEvents.addEventListener(sphere, 'click', () => {
 lpDomEvents.addEventListener(cube, 'click', () => {
   if (!cubesIn) {
     drawCubes(mainScene);
-    console.log(mainScene.children)
-    console.log(mainScene.children.find(elem => {
-      return elem.name == 'cubes'
-    }))
     clicked = 'cubes'
   } else {
     if (clicked == 'cubes'){
