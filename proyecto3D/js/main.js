@@ -142,6 +142,21 @@ var animateMain = function () {
         break;
     }
   }
+   if (escape) {
+     escape = false
+     mainScene.remove(mainScene.children.find(elem => {
+       return elem.name == 'octahedrons'
+     }))
+     mainScene.remove(mainScene.children.find(elem => {
+       return elem.name == 'spheres'
+     }))
+     mainScene.remove(mainScene.children.find(elem => {
+       return elem.name == 'cubes'
+     }))
+     cubesIn = false;
+     shperesIn = false;
+     octahedronsIn = false;
+   }
 };
 
 animateMain();
