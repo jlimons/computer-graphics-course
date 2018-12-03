@@ -192,7 +192,7 @@ function changeColor(group){
 
 function changeTrans(group){
   var num = prompt("Escoge un número entre 0 y 1")
-  if (num != null) {
+  if (num != null && num != '') {
     if(isNaN(num)){
       alert('input inválido :(')
     }else{
@@ -206,7 +206,7 @@ function changeTrans(group){
 
 function scaleGeometry(group){
   var num = prompt("Escoge un numero entre 0 y 5")
-  if(num!=null){
+  if (num != null && num != '') {
     if(isNaN(num)){
       alert('input inválido :(')
     }else{
