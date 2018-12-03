@@ -205,7 +205,7 @@ function changeTrans(group){
 }
 
 function scaleGeometry(group){
-  var num = prompt("Escoge un numero entre 0 y 5")
+  var num = prompt("Escoge un número entre 0 y 5")
   if (num != null && num != '') {
     if(isNaN(num)){
       alert('input inválido :(')
