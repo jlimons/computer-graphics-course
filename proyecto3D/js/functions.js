@@ -191,18 +191,28 @@ function changeColor(group){
 
 
 function changeTrans(group){
-  var num = prompt("Escoge un numero entre 0 y 1")
-  group.children.forEach((element,index)=>{
-    element.material.transparent = true;
-    element.material.opacity= num;
-  });
+  var num = prompt("Escoge un número entre 0 y 1")
+  if (num != null) {
+    if(isNaN(num)){
+      alert('input inválido :(')
+    }else{
+      group.children.forEach((element, index) => {
+        element.material.transparent = true;
+        element.material.opacity = num;
+      });
+    }
+  }
 }
 
 function scaleGeometry(group){
   var num = prompt("Escoge un numero entre 0 y 5")
   if(num!=null){
-    group.children.forEach((element, index) => {
-      element.scale.set(num,num,num);
-    });
+    if(isNaN(num)){
+      alert('input inválido :(')
+    }else{
+      group.children.forEach((element, index) => {
+        element.scale.set(num, num, num);
+      });
+    }
   }
 }
