@@ -10,7 +10,9 @@ lprenderer.setClearColor(0x000000);
 
 document.getElementById('leftpanel').appendChild(lprenderer.domElement);
 
-// CUBO
+/*
+ * Cubo principal
+ */
 var geometry = new THREE.BoxGeometry(6, 6, 6);
 var material = new THREE.MeshLambertMaterial({
   color: 0xff444f,
@@ -19,7 +21,9 @@ var cube = new THREE.Mesh(geometry, material);
 cube.position.set(0, 0, -20);
 lpscene.add(cube);
 
-// ESFERA
+/*
+ * Esfera principal
+ */
 var geometry = new THREE.SphereGeometry(5, 25, 25);
 var material = new THREE.MeshLambertMaterial({
   color: 0xfff444f,
@@ -28,7 +32,9 @@ var sphere = new THREE.Mesh(geometry, material);
 sphere.position.set(0, 15, -20);
 lpscene.add(sphere);
 
-// OCTAEDRO
+/*
+ * Octahedro principal
+ */
 var geometry = new THREE.OctahedronGeometry(5, 0);
 var material = new THREE.MeshLambertMaterial({
   color: 0xff444f,
@@ -38,13 +44,17 @@ sphere2.position.set(0, -15, -20);
 lpscene.add(sphere2);
 
 
-// LIGHT
+/*
+ * Iluminación principal
+ */
 var directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
 directionalLight.position.z = 2;
 lpscene.add(directionalLight);
 
-// EventListeners
-// Esfera
+/*
+ * Listeners para cada uno de los elementos del 
+ * left panel
+ */
 var lpDomEvents = new THREEx.DomEvents(lpcamera, lprenderer.domElement);
 lpDomEvents.addEventListener(sphere, 'click', () => {
   if(!shperesIn){
@@ -59,7 +69,6 @@ lpDomEvents.addEventListener(sphere, 'click', () => {
   }
 })
 
-// Cube
 lpDomEvents.addEventListener(cube, 'click', () => {
   if (!cubesIn) {
     drawCubes(mainScene);
@@ -73,7 +82,6 @@ lpDomEvents.addEventListener(cube, 'click', () => {
   }
 })
 
-// Octa
 lpDomEvents.addEventListener(sphere2, 'click', () => {
   if (!octahedronsIn) {
     drawOctahedrons(mainScene);
@@ -87,7 +95,9 @@ lpDomEvents.addEventListener(sphere2, 'click', () => {
   }
 })
 
-//Animacion lateral
+/*
+ * Función de animación
+ */
 var animateLP = function () {
   requestAnimationFrame(animateLP);
   lprenderer.render(lpscene, lpcamera);

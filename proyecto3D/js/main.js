@@ -1,3 +1,6 @@
+/*
+ * Variables globales
+ */
 var width = window.innerWidth / 50;
 var height = window.innerHeight / 50;
 var near = 1;
@@ -18,6 +21,9 @@ var scale = false;
 
 var clicked = '';
 
+/*
+ * Creación de render principal
+ */
 var mainScene = new THREE.Scene();
 var mainCamera = new THREE.OrthographicCamera(-width, width, height, -height, near, far);
 
@@ -27,13 +33,18 @@ mainRenderer.setClearColor(0xffffff);
 
 document.getElementById('main').appendChild(mainRenderer.domElement);
 
-// LIGHT
+/*
+ * Iluminación de punto para la escena principal
+ */
 var mainDirectionalLight = new THREE.SpotLight(0xffffff, 1);
 mainDirectionalLight.position.z = 10;
 mainScene.add(mainDirectionalLight);
 
 drawLines(mainScene);
 
+/*
+ * Animación de escena principal
+ */
 var animateMain = function () {
   frameCounter ++;
   requestAnimationFrame(animateMain);

@@ -1,5 +1,9 @@
 var colors = [0xf44242, 0xf4a341, 0xf4df41, 0x4cf441, 0x41f4e8, 0x4143f4, 0xd341f4, 0xf44194];
 
+/*
+* Agrega Event Listeners para cada uno de los eventos requeridos
+* en el teclado.
+*/
 document.addEventListener("keypress", function onEvent(event) {
   if (event.key === "e" || event.key === "E") {
     scale = !scale
@@ -16,6 +20,10 @@ document.addEventListener("keypress", function onEvent(event) {
   }
 });
 
+/*
+ * Dibuja las lineas a la mitad del espacio dependiendo
+ * del width del espacio de visualización.
+ */
 function drawLines(scene){
   var group = new THREE.Group();
   group.name = 'lines';
@@ -34,6 +42,10 @@ function drawLines(scene){
   }
 }
 
+/*
+ * Dibuja los cubos en el espacio de visualización en 
+ * coordenadas x, y, z aleatorias.
+ */
 function drawCubes(scene) {
   var group = new THREE.Group();
   group.name = 'cubes';
@@ -58,6 +70,10 @@ function drawCubes(scene) {
   }
 }
 
+/*
+ * Dibuja las esferas en el espacio de visualización en 
+ * coordenadas x, y, z aleatorias.
+ */
 function drawSpheres(scene){
   var group = new THREE.Group();
   group.name = 'spheres';
@@ -85,6 +101,10 @@ function drawSpheres(scene){
   }
 }
 
+/*
+ * Dibuja los octahedros en el espacio de visualización en 
+ * coordenadas x, y, z aleatorias.
+ */
 function drawOctahedrons(scene){
   var group = new THREE.Group();
   group.name = 'octahedrons';
@@ -112,6 +132,11 @@ function drawOctahedrons(scene){
   }
 }
 
+/*
+ * Función para rotar geometrías de un grupo dado.
+ * Los factores de rotación se calculan aleatoriamente
+ * para la coordenada y.
+ */
 function rotateGeometry(group) {
   var arrX = [];
   var arrY = [];
@@ -129,6 +154,12 @@ function rotateGeometry(group) {
   });
 }
 
+/*
+ * Función para mover geometrías de un grupo dado.
+ * Se tendrá un arreglo booleano para controlar el rebote
+ * en cada una de las coordenadas y otro arreglo para
+ * controlar la velocidad de movimiento de cada elemento
+ */
 var up = [];
 var right = [];
 var z = [];
@@ -182,14 +213,22 @@ function moveGeometry(group){
   });
 }
 
+/*
+ * Función para cambiar el color de geometrías en un 
+ * grupo dado. Se selecciona un índice aleatorio entre
+ * 0 y 8 para tomar un color del arreglo colors.
+ */
 function changeColor(group){
     group.children.forEach((elem, index) => {
-      rand=Math.floor(Math.random() * 8);
+      rand = Math.floor(Math.random() * 8);
       elem.material.color.setHex(colors[rand]);
   })
 }
 
-
+/*
+ * Función para cambiar transparencia de geometrías en un 
+ * grupo dado. 
+ */
 function changeTrans(group){
   var num = prompt("Escoge un número entre 0 y 1")
   if (num != null && num != '') {
@@ -204,6 +243,9 @@ function changeTrans(group){
   }
 }
 
+/*
+ * Función para ecalar geometrías en un grupo dado.
+ */
 function scaleGeometry(group){
   var num = prompt("Escoge un número entre 0 y 5")
   if (num != null && num != '') {
